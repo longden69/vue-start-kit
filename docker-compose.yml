@@ -4,7 +4,7 @@ services:
     tty: true
     stdin_open: true
     command: sh /docker-entrypoint.sh
-    build: ./docker/web
+    build: ./docker
     ports: 
       - '8080:8080'
     volumes:

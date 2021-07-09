@@ -7,7 +7,7 @@ set -e
 npm install
 
 # Start services
-npm run dev
+npm run serve
 
 # Finally call command issued to the docker service
 exec "$@"
