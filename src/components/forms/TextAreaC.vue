@@ -5,10 +5,10 @@
     </b-col>
     <b-col :sm="objectProperties.fieldCol">
       <ValidationProvider :rules="rulesValidation" v-slot="errors">
-        <b-form-input
+        <b-form-textarea
           :id="`id-${objectProperties.keyName}`"
           :placeholder="objectProperties.placeholder"
-          type="text" v-model="objectProperties.value"></b-form-input>
+          v-model="objectProperties.value">{{objectProperties.value}}</b-form-textarea>
         <p class="text-danger msg-error">{{ errors.errors[0] }}</p>
       </ValidationProvider>
     </b-col>
@@ -30,10 +30,9 @@ import {
 } from 'vee-validate/dist/rules';
 
 export default {
-  name: 'TextC',
+  name: 'TextAreaC',
   components: {
   },
-
   props: {
     objectProperties: {
       type: Object,
@@ -93,6 +92,10 @@ export default {
       }),
     },
   },
+  data() {
+    return {
+    };
+  },
   computed: {
     rulesValidation() {
       const rulesArr = [];
@@ -135,6 +138,9 @@ export default {
     },
   },
   created() {
+    setTimeout(() => {
+      console.log(this.rulesValidation);
+    }, 3000);
     // My custom validation
     // More rules here: https://vee-validate.logaretm.com/v3/guide/rules.html#rules
     extend('required', {

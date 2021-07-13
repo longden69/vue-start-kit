@@ -3,8 +3,6 @@ export default {
     hello: 'hello world',
   },
   validation: {
-    textC: {
-      required: 'This field is required!',
-    },
+    required: '{fieldName} is required!',
   },
 };
